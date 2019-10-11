@@ -1,0 +1,54 @@
+{
+  "HOME": {
+    "TITLE": "ค้นหาค้นพบ (0)"
+  },
+  "Medcareverison": {
+    "version": "2.0.44"
+  },
+  "RegistrationPage" : {
+    "idExistWarning":"รหัสนี้มีอยู่แล้วในระบบ",
+    "primaryID":"ประเภทการระบุ",
+    "photo" : "Photo",
+    "primaryDocNo": "",
+    "dobColumn" : "Date of Birth",
+    "expiryDate": "",
+    "secondaryId":"ประเภทรหัสรอง",
+    "secondaryDocNo":"เลขรองเอกสาร",
+    "prefix":"อุปสรรค",
+    "name":"ชื่อเต็ม",
+    "dobForm":"วันที่เกิด",
+    "age":"อายุ",
+    "phone":"หมายเลขโทรศัพท์",
+    "gender":"เพศ",
+    "race":"แข่ง",
+    "nationality":"สัญชาติ",
+    "maritalStatus":"สถานภาพการสมรส",
+    "occupation":"อาชีพ",
+    "patientCategory":"ประเภทผู้ป่วย",
+    "religion":"ศาสนา",
+    "city":"เมือง",
+    "country":"ประเทศ",
+    "address":"ที่อยู่",
+    "state":"สถานะ",
+    "zipcode": "รหัสไปรษณีย์",
+    "localAddress":"ที่อยู่ในท้องถิ่น",
+    "permanentAddress":"ที่อยู่ถาวร",
+    "saveButton":"บันทึกการเปลี่ยนแปลง",
+    "nextButton":"ต่อไป",
+    "searchBar":"ค้นหา",
+    "patientSearchError" :"ขออภัย! มีบางอย่างผิดพลาดลองใช้การค้นหาอื่น",
+    "mrn":"MRN",
+    "patientSearchName":"ชื่อ",
+    "identificationId" :"Id ระบุ",
+    "successHeader":"ความสำเร็จ",
+    "successMessage":"เก็บบันทึกสำเร็จแล้ว",
+    "sameAsLocalAddress" : "Same as Local Address",
+    "vip" : "VIP",
+    "placeholder": {
+      "fromDate"	: "Select From Date",
+      "toDate"	: "Select To Date",
+      "doctorName" :	"Enter Doctor Name",
+      "patientMRN"	: "Enter Patient MRN"
+      }
+  }
+}

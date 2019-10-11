@@ -1,0 +1,646 @@
+<div class="payment-container" data-automation-attribute="div-payment">
+  <form
+    data-automation-attribute="form-payment-dialog"
+    data-automation-attribute="form-payment"
+  >
+    <div
+      class="modal-header modalHeaderBlack"
+      data-automation-attribute="div-modal-header"
+    >
+      <h6 class="modal-title">Payment Details</h6>
+      <span
+        aria-label="Close"
+        class="close"
+        (click)="onNoClick()"
+        data-automation-attribute="button-close-dialog"
+        data-automation-attribute="span-close-dialog"
+      >
+        <mat-icon>clear</mat-icon>
+      </span>
+    </div>
+
+    <div class="modal-body" data-automation-attribute="div-modal-body">
+      <div class="divFullWidth">
+        <div id="divDeposit" *ngIf="deposit">
+          <div class="displayInline">
+            <div class="mb-10">
+              <span>Total Deposit</span>
+              <b class="pl-10">{{ round(balanceAmount) }}</b>
+            </div>
+            <!-- <div class="pl-50">
+              <mat-checkbox data-automation-attribute="checkbox-active-deposit"
+                >Use Active Deposit</mat-checkbox
+              >
+            </div> -->
+          </div>
+
+          <div
+            class="example-container mat-elevation-z8 payment-table"
+            data-automation-attribute="div-payment-table"
+          >
+            <table
+              mat-table
+              #table
+              [dataSource]="dataSourceDeposit"
+              class="mat-elevation-z8"
+              style="width: 100%"
+              data-automation-attribute="table-deposit"
+            >
+              <ng-container matColumnDef="check">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element; let i = index">
+                  <mat-checkbox
+                    (change)="consumeOnCheck($event.checked, i)"
+                    [(ngModel)]="element.checked"
+                    name="element.checked"
+                    data-automation-attribute="chk-record"
+                  ></mat-checkbox>
+                </td>
+                <td mat-footer-cell *matFooterCellDef>&nbsp;</td>
+              </ng-container>
+
+              <!-- Code Column -->
+              <ng-container matColumnDef="depositno">
+                <th mat-header-cell *matHeaderCellDef class="headerDepositNo">
+                  Deposit No.
+                </th>
+                <td mat-cell *matCellDef="let element" class="headerDepositNo">
+                  {{ element.depositno }}
+                </td>
+                <td mat-footer-cell *matFooterCellDef>&nbsp;</td>
+              </ng-container>
+
+              <!-- Description Column -->
+              <ng-container matColumnDef="depositdate">
+                <th mat-header-cell *matHeaderCellDef class="headerDepositDate">
+                  Deposit Date
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="headerDepositDate"
+                >
+                  {{ element.depositdate | date: "dd/mm/yyyy" }}
+                </td>
+                <td mat-footer-cell *matFooterCellDef>&nbsp;</td>
+              </ng-container>
+
+              <!-- Status Column -->
+              <ng-container matColumnDef="patientdetails">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  class="headerPatientDetails"
+                >
+                  Patient Details
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="headerPatientDetails"
+                >
+                  {{ element.patientdetails }}
+                </td>
+                <td mat-footer-cell *matFooterCellDef>&nbsp;</td>
+              </ng-container>
+
+              <!-- Code Column -->
+              <ng-container matColumnDef="against">
+                <th mat-header-cell *matHeaderCellDef class="headerAgainst">
+                  Against
+                </th>
+                <td mat-cell *matCellDef="let element" class="headerAgainst">
+                  {{ element.against }}
+                </td>
+                <td mat-footer-cell *matFooterCellDef>&nbsp;</td>
+              </ng-container>
+
+              <!-- Description Column -->
+              <ng-container matColumnDef="encountertype">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  class="headerEncounterType"
+                >
+                  Encounter Type
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="headerEncounterType"
+                >
+                  {{ element.encountertype }}
+                </td>
+                <td mat-footer-cell *matFooterCellDef>&nbsp;</td>
+              </ng-container>
+
+              <!-- Status Column -->
+              <ng-container matColumnDef="encounterno">
+                <th mat-header-cell *matHeaderCellDef class="headerEncounterNo">
+                  Encounter No.
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="headerEncounterNo"
+                >
+                  {{ element.encounterno }}
+                </td>
+                <td mat-footer-cell *matFooterCellDef>&nbsp;</td>
+              </ng-container>
+
+              <!-- Description Column -->
+              <ng-container matColumnDef="paymentmode">
+                <th mat-header-cell *matHeaderCellDef class="headerPaymentMode">
+                  Payment Mode
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="headerPaymentMode"
+                >
+                  <mat-icon (click)="openPaymentDetailDialog(element.payments)"
+                    >info</mat-icon
+                  >
+                </td>
+                <td mat-footer-cell *matFooterCellDef>&nbsp;</td>
+              </ng-container>
+
+              <!-- Status Column -->
+              <ng-container matColumnDef="depositamt">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  class="headerDepositAmount"
+                >
+                  Deposit Amount
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="headerDepositAmount"
+                >
+                  {{ round(element.depositamt) }}
+                </td>
+                <td mat-footer-cell *matFooterCellDef>
+                  {{ round(depositAmount) }}
+                </td>
+              </ng-container>
+
+              <!-- Status Column -->
+              <ng-container matColumnDef="consumeamt">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  class="headerConsumeAmount"
+                >
+                  Consume Amount
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="headerConsumeAmount"
+                >
+                  {{ round(element.consumeamt) }}
+                </td>
+                <td mat-footer-cell *matFooterCellDef>
+                  {{ round(consumeTotal) }}
+                </td>
+              </ng-container>
+
+              <!-- Description Column -->
+              <ng-container matColumnDef="refundamt">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  class="headerRefundAmount"
+                >
+                  Refund Amount
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="headerRefundAmount"
+                >
+                  {{ round(element.refundamt) }}
+                </td>
+                <td mat-footer-cell *matFooterCellDef>
+                  {{ round(refundAmount) }}
+                </td>
+              </ng-container>
+
+              <!-- Status Column -->
+              <ng-container matColumnDef="balance">
+                <th mat-header-cell *matHeaderCellDef class="headerBalance">
+                  Balance
+                </th>
+                <td mat-cell *matCellDef="let element" class="headerBalance">
+                  {{ round(element.balance) }}
+                </td>
+                <td mat-footer-cell *matFooterCellDef>
+                  {{ round(balanceAmount) }}
+                </td>
+              </ng-container>
+
+              <!-- Status Column -->
+              <ng-container matColumnDef="collectedby">
+                <th mat-header-cell *matHeaderCellDef class="headerCollectedBy">
+                  Collected By
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="headerCollectedBy"
+                >
+                  {{ element.collectedby }}
+                </td>
+                <td mat-footer-cell *matFooterCellDef>&nbsp;</td>
+              </ng-container>
+
+              <ng-container matColumnDef="consume">
+                <th mat-header-cell *matHeaderCellDef>Consumed</th>
+                <td mat-cell *matCellDef="let element; let i = index">
+                  <input
+                    type="number"
+                    min="0"
+                    class="table-text"
+                    [disabled]="!element.checked"
+                    [(ngModel)]="element.consumedAmount"
+                    name="element.consumedAmount"
+                    (keyup)="consumeOnKeyUp(i)"
+                  />
+                </td>
+                <td mat-footer-cell *matFooterCellDef>&nbsp;</td>
+              </ng-container>
+
+              <tr
+                mat-header-row
+                *matHeaderRowDef="displayedColumnsDeposit; sticky: true"
+                class="tableHeader"
+                data-automation-attribute="header-deposit"
+              ></tr>
+              <tr
+                mat-row
+                *matRowDef="let row; columns: displayedColumnsDeposit"
+                class="tableRow"
+                data-automation-attribute="row-deposit"
+              ></tr>
+              <tr
+                mat-footer-row
+                class="tableFooter"
+                *matFooterRowDef="displayedColumnsDeposit; sticky: true"
+                data-automation-attribute="footer-deposit"
+              ></tr>
+            </table>
+          </div>
+        </div>
+
+        <div *ngIf="deposit" class="mt-10 mb-10">
+          <div>
+            <span>Consumed Amount</span>
+            <b class="pl-10">{{ round(consumeAmount) }}</b>
+          </div>
+        </div>
+
+        <div class="example-container mat-elevation-z8 payment-table">
+          <mat-table
+            #table
+            [dataSource]="dataSourcePayment"
+            class="height200"
+            data-automation-attribute="table-list-payment"
+          >
+            <ng-container matColumnDef="paymentmode">
+              <mat-header-cell *matHeaderCellDef>Payment Mode </mat-header-cell>
+              <mat-cell *matCellDef="let element"
+                >{{ element.paymentmode.desc }}
+              </mat-cell>
+              <mat-cell mat-footer-cell *matFooterCellDef>&nbsp;</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="currency">
+              <mat-header-cell *matHeaderCellDef>Currency</mat-header-cell>
+              <mat-cell *matCellDef="let element"
+                >{{ element.currency.desc }}
+              </mat-cell>
+              <mat-cell mat-footer-cell *matFooterCellDef>Total</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="amount">
+              <mat-header-cell *matHeaderCellDef> Amount</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{
+                round(element.amount)
+              }}</mat-cell>
+              <mat-cell mat-footer-cell *matFooterCellDef>{{
+                round(totalPayAmount)
+              }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="number">
+              <mat-header-cell *matHeaderCellDef>Number</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{
+                element.number
+              }}</mat-cell>
+              <mat-cell mat-footer-cell *matFooterCellDef>&nbsp;</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="bank">
+              <mat-header-cell *matHeaderCellDef>Bank</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{
+                element.bank.desc
+              }}</mat-cell>
+              <mat-cell mat-footer-cell *matFooterCellDef> &nbsp;</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="cardtype">
+              <mat-header-cell *matHeaderCellDef>Card Type</mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <span> {{ element.cardtype.desc }}</span>
+              </mat-cell>
+              <mat-cell mat-footer-cell *matFooterCellDef>&nbsp;</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="transactiontype">
+              <mat-header-cell *matHeaderCellDef
+                >Transaction Type</mat-header-cell
+              >
+              <mat-cell *matCellDef="let element">{{
+                element.transactiontype.desc
+              }}</mat-cell>
+              <mat-cell mat-footer-cell *matFooterCellDef> &nbsp;</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+              <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                {{ element.date }}
+              </mat-cell>
+              <mat-cell mat-footer-cell *matFooterCellDef>&nbsp;</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+              <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+              <mat-cell *matCellDef="let element; let i = index">
+                <mat-icon (click)="removePaymentRow(i)">delete</mat-icon>
+              </mat-cell>
+              <mat-cell mat-footer-cell *matFooterCellDef>&nbsp;</mat-cell>
+            </ng-container>
+
+            <mat-header-row
+              *matHeaderRowDef="displayedColumns"
+              class="tableHeader"
+              data-automation-attribute="header-list-payment"
+            ></mat-header-row>
+            <mat-row
+              *matRowDef="let row; let i = index; columns: displayedColumns"
+              matRipple
+              data-automation-attribute="row-list-payment"
+              class="element-row tableRow"
+            ></mat-row>
+            <mat-footer-row
+              class="tableFooterPay"
+              mat-footer-row
+              *matFooterRowDef="displayedColumns; sticky: true"
+              data-automation-attribute="footer-list-payment"
+            ></mat-footer-row>
+          </mat-table>
+        </div>
+
+        <div class="mt-10 mb-10 flex">
+          <div class="amount-equal">
+            <span>Total Amount</span>
+            <b class="pl-10">{{ round(totalDueAmount) }}</b>
+          </div>
+          <div class="amount-equal">
+            <span>Due Amount</span>
+            <b class="pl-10">{{ round(totalDueAmount - totalPayment) }}</b>
+          </div>
+          <div class="amount-equal">
+            <span>Paid Amount</span>
+            <b class="pl-10">{{ round(totalPayment) }}</b>
+          </div>
+        </div>
+
+        <div class="payment-form" data-automation-attribute="div-payment-form">
+          <form
+            [formGroup]="paymentForm"
+            (ngSubmit)="addPayment()"
+            data-automation-attribute="form-add-payment"
+          >
+            <mat-grid-list cols="12" rowHeight="55px">
+              <mat-grid-tile [colspan]="2">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Payment Mode</mat-label>
+                  <mat-select
+                    formControlName="paymentMode"
+                    [(ngModel)]="paymentMode"
+                    data-automation-attribute="select-company"
+                    data-automation-attribute="select-payment-mode"
+                  >
+                    <mat-option
+                      *ngFor="let option of paymentModes"
+                      value="{{ option.id }}"
+                      >{{ option.desc }}</mat-option
+                    >
+                  </mat-select>
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Currency</mat-label>
+                  <mat-select
+                    formControlName="currency"
+                    [(ngModel)]="currency"
+                    [disabled]=isCurrencyAdded
+                    data-automation-attribute="select-currency"
+                  >
+                    <mat-option
+                      *ngFor="let option of currencies"
+                      value="{{ option.id }}"
+                      >{{ option.desc }}</mat-option
+                    >
+                  </mat-select>
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Amount</mat-label>
+                  <input
+                    formControlName="amount"
+                    [(ngModel)]="amount"
+                    matInput
+                    placeholder="Amount"
+                    type="number"
+                    min="0"
+                    data-automation-attribute="text-amount"
+                  />
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Number</mat-label>
+                  <input
+                    formControlName="accountNumber"
+                    [(ngModel)]="accountNumber"
+                    matInput
+                    placeholder="Number"
+                    [disabled]="true"
+                    type="number"
+                    min="0"
+                    data-automation-attribute="text-number"
+                  />
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Bank</mat-label>
+                  <mat-select
+                    formControlName="bank"
+                    [(ngModel)]="bank"
+                    data-automation-attribute="select-company"
+                    [disabled]="true"
+                    data-automation-attribute="text-bank"
+                  >
+                    <mat-option
+                      *ngFor="let option of banks"
+                      value="{{ option.id }}"
+                      >{{ option.desc }}</mat-option
+                    >
+                  </mat-select>
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Card Type</mat-label>
+                  <mat-select
+                    formControlName="cardType"
+                    [(ngModel)]="cardType"
+                    data-automation-attribute="select-company"
+                    [disabled]="true"
+                    data-automation-attribute="select-card-type"
+                  >
+                    <mat-option
+                      *ngFor="let option of cardTypes"
+                      value="{{ option.id }}"
+                      >{{ option.desc }}</mat-option
+                    >
+                  </mat-select>
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="2">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Transaction Type</mat-label>
+                  <mat-select
+                    formControlName="transactionType"
+                    [(ngModel)]="transactionType"
+                    data-automation-attribute="select-company"
+                    [disabled]="true"
+                    data-automation-attribute="select-transaction-type"
+                  >
+                    <mat-option
+                      *ngFor="let option of transactionTypes"
+                      value="{{ option.id }}"
+                      >{{ option.desc }}</mat-option
+                    >
+                  </mat-select>
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="2">
+                <mat-form-field class="full-width" appearance="outline">
+                  <input
+                    matInput
+                    placeholder="Payment Date"
+                    formControlName="paymentDate"
+                    [(ngModel)]="paymentDate"
+                    data-automation-attribute="text-payment-date"
+                  />
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1">
+                <button
+                  mat-mini-fab
+                  class="btnorange"
+                  type="submit"
+                  data-automation-attribute="button-add-row"
+                >
+                  <mat-icon
+                    matTooltip="add"
+                    data-automation-attribute="icon-add"
+                    >add</mat-icon
+                  >
+                </button>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="payment-form" data-automation-attribute="div-payment-footer">
+      <form
+        [formGroup]="footerForm"
+        (ngSubmit)="openConfirmDialog()"
+        data-automation-attribute="form-payment-footer"
+      >
+        <mat-grid-list cols="12" rowHeight="55px">
+          <mat-grid-tile [colspan]="2">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Received From</mat-label>
+              <!-- <mat-select data-automation-attribute="select-amount-received-from">
+              <mat-option value="Patient">Patient</mat-option>
+            </mat-select> -->
+              <input
+                matInput
+                formControlName="receivedFrom"
+                placeholder="Received From"
+                [(ngModel)]="receivedFrom"
+                data-automation-attribute="select-Remarks"
+              />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="2">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Identification No</mat-label>
+              <input
+                matInput
+                formControlName="indentificationNumber"
+                [(ngModel)]="indentificationNumber"
+                placeholder="Identification No"
+                data-automation-attribute="select-Remarks"
+              />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="4">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Remark</mat-label>
+              <input
+                matInput
+                placeholder="Remark"
+                [(ngModel)]="remark"
+                formControlName="remark"
+                data-automation-attribute="select-Remarks"
+              />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="3">
+            <mat-checkbox
+              formControlName="transferToActive"
+              [(ngModel)]="transferToActive"
+              [disabled]="!deposit"
+              >Transfer to Active Deposit</mat-checkbox
+            >
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1">
+            <button
+              mat-mini-fab
+              class="btnCyan"
+              type="submit"
+              data-automation-attribute="button-save-payment-details"
+            >
+              <mat-icon matTooltip="Save">sim_card</mat-icon>
+            </button>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </form>
+    </div>
+  </form>
+</div>

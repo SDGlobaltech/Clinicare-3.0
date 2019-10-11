@@ -1,0 +1,11 @@
+{
+  "name": "cms-core-ui",
+  "version": "1.0.1",
+  "peerDependencies": {
+    "@angular/common": "^7.1.0",
+    "@angular/core": "^7.1.0"
+  },
+  "devDependencies": {
+    "@types/socket.io-client": "^1.4.32"
+  }
+}

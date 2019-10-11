@@ -1,0 +1,36 @@
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0;
+}
+
+.mat-form-field-infix {
+  border-top: 0 !important;
+}
+
+textarea.mat-input-element {
+  height: 5pc;
+  padding: 10px 0 !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-label {
+  top: 24px;
+  margin-top: 0;
+}
+
+.mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+  transform: translateY(0%) !important;
+}
+
+.mat-form-field .mat-form-field-label .mat-form-field-required-marker,
+.mat-form-field .mat-form-field-label.mat-accent {
+  color: #f44336 !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 10px 0 !important;
+}
+
+.mat-form-field-wrapper {
+  padding-bottom: 0 !important;
+}

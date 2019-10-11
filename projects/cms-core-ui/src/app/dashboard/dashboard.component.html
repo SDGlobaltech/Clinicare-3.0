@@ -1,0 +1,63 @@
+<div class="div-dashboard heightVh95" style="background-image: url(assets/images/dashboard-background.png);">
+  <div class="divGridModules">
+    <mat-grid-list cols="12" rowHeight="220px" class="divListModule">
+      <mat-grid-tile [colspan]="3">
+        <div class="divModule divActiveModule" (click)="menuOnClick(submenu)">
+          <img src="assets/images/waiting-queue.png" class="imgModule"/>
+          <b class="moduleName">Waiting Queue</b>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="3">
+        <div class="divModule" (click)="menuOnClick(submenu)">
+          <img src="assets/images/appointment.png" class="imgModule"/>
+          <b class="moduleName">Appointment</b>
+          <span class="moduleNotification center">3</span>
+        </div>
+      </mat-grid-tile>
+      
+      <mat-grid-tile [colspan]="3">
+          <div class="divModule" (click)="menuOnClick(submenu)">
+            <img src="assets/images/consultation.png" class="imgModule"/>
+            <b class="moduleName">Consultation</b>
+          </div>
+        </mat-grid-tile>
+      
+        <mat-grid-tile [colspan]="3">
+            <div class="divModule" (click)="menuOnClick(submenu)">
+              <img src="assets/images/dispensary.png" class="imgModule"/>
+              <b class="moduleName">Dispensary</b>
+            </div>
+          </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="12" rowHeight="220px" class="divListModule">
+      <mat-grid-tile [colspan]="3">
+        <div class="divModule" (click)="menuOnClick(submenu)">
+          <img src="assets/images/inventory.png" class="imgModule"/>
+          <b class="moduleName">Inventory</b>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="3">
+        <div class="divModule" (click)="menuOnClick(submenu)">
+          <img src="assets/images/report.png" class="imgModule"/>
+          <b class="moduleName">Report</b>
+        </div>
+      </mat-grid-tile>
+      
+      <mat-grid-tile [colspan]="3">
+          <div class="divModule" (click)="menuOnClick(submenu)">
+            <img src="assets/images/cashbook.png" class="imgModule"/>
+            <b class="moduleName">Cash Book</b>
+          </div>
+        </mat-grid-tile>
+      
+        <mat-grid-tile [colspan]="3">
+            <div class="divModule" (click)="menuOnClick(submenu)">
+              <img src="assets/images/admin.png" class="imgModule"/>
+              <b class="moduleName">Admin</b>
+            </div>
+          </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+.modalFooterConfirmDialog .mat-dialog-actions{
+  width: auto !important;
+}
+
+.buttonalignment{
+  padding-right: 20% !important;
+  padding-top: 10% !important;
+}
+
+.mat-select-value {
+  display: table-cell !important;
+  max-width: 0 !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  padding-left: 6px !important;
+  padding-top: 4px !important;
+}
+
+.mat-select {
+  display: inline-block !important;
+  border: solid 1px;
+  width: 50%;
+  height: 30px;
+  padding-left: 1% !important;
+  padding-top: 4px !important;
+}
+
+.mat-form-field {
+  width: 55%;
+  float: left !important;
+}
+

@@ -1,0 +1,47 @@
+.div-dashboard {
+  background-size: cover;
+  .divGridModules {
+    margin: auto;
+    width: 65%;
+    height: 90vh;
+    padding-top: 15vh;
+    .divModule {
+      border: 3px solid #9b9b9b;
+      border-radius: 20px;
+      display: grid;
+      background-color: #ffffff;
+      padding: 15px;
+      position: relative;
+      width: 160px;
+
+      .moduleName {
+        text-align: center;
+        color: #9b9b9b;
+        font-size: 18px;
+      }
+      .imgModule {
+        height: 50px;
+        margin: 20px auto;
+      }
+      .moduleNotification {
+        height: 30px;
+        width: 30px;
+        background-color: #cb5251;
+        color: #ffffff;
+        position: absolute;
+        top: -15px;
+        right: -10px;
+        border-radius: 50%;
+        line-height: 2;
+      }
+    }
+    .divActiveModule {
+      border: 3px solid #38a791;
+      color: #38a791;
+
+      .moduleName {
+        color: #38a791;
+      }
+    }
+  }
+}

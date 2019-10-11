@@ -1,0 +1,76 @@
+<!-- <div>
+  <form data-automation-attribute="form-confirm-dialog">
+    <div class="modal-body bodyCreatePasscode">
+      <p>Do you want to proceed?</p>
+    </div>
+    <div class="modal-footer modalFooterConfirmDialog">
+      <div>
+          <label>Remarks: <mat-form-field>
+              <textarea matInput [(ngModel)]="remarkValue"></textarea>
+          </mat-form-field> </label>
+        <button
+          mat-mini-fab
+          class="btnCyan"
+          type="submit"
+          data-automation-attribute="button-save-dialog"
+        >
+          <mat-icon matTooltip="Yes" (click)="buttonClick('yes')"
+            >check_circle</mat-icon
+          >
+        </button>
+        <button
+          mat-mini-fab
+          class="btnRed"
+          type="submit"
+          data-automation-attribute="button-cancel-dialog"
+        >
+          <mat-icon matTooltip="No" (click)="buttonClick('no')">close</mat-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+</div> -->
+
+<div class="cancel">
+  <div>
+    <div class="modal-header modalHeaderDefault">
+      <h6 class="modal-title">Do you want to proceed?</h6>
+      <span aria-label="Close" class="close" (click)="onNoClick()">
+        <mat-icon>clear</mat-icon>
+      </span>
+    </div>
+    <br />
+
+    <div class="modal-body bodyCreatePasscode">
+      <mat-grid-list cols="12" rowHeight="80px">
+        <mat-grid-tile [colspan]="2">Remarks:</mat-grid-tile>
+        <mat-grid-tile [colspan]="10">
+          <mat-form-field class="full-width" appearance="outline">
+            <textarea matInput [(ngModel)]="remarkValue"></textarea>
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+    <div class="modal-footer modalFooterRegistrationConfirm">
+      <div>
+        <button
+          mat-flat-button
+          (click)="SaveRemarks('yes')"
+          class="btnYes btnGreen"
+          data-automation-attribute="button-yes"
+        >
+          Save
+        </button>
+        &nbsp;
+        <button
+          mat-flat-button
+          (click)="onNoClick()"
+          class="btnNo btnRed"
+          data-automation-attribute="button-no"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

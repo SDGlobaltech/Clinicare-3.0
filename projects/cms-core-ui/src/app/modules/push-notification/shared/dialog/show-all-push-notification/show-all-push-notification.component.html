@@ -1,0 +1,98 @@
+<div data-automation-attribute="div-success-encounter">
+
+  <div class="modal-header modalHeaderBlack" data-automation-attribute="div-modal-header">
+    <h6 class="modal-title">Notifications</h6>
+    <span aria-label="Close" class="close" (click)="onNoClick()" data-automation-attribute="span-close-dialog">
+      <mat-icon>clear</mat-icon>
+    </span>
+  </div>
+
+  <div class="modal-body bodyCreatePasscode" data-automation-attribute="div-modal-body">
+
+    <div class="mat-menu-modal divNotification">
+      <div class="divBody">
+        <div class="divNotificationItem divNotificationItemUnread">
+          <div class="flex">
+            <img src="assets/images/notification-lab.png" class="pr-2">
+            <div class="content-notifcation width80">
+              <b>ADT &nbsp;</b>
+              <span class="spanNotificationMsg">Notification for admission of patient to ward B</span>
+            </div>
+            <div class="divTime width20 right">3.00pm</div>
+          </div>
+        </div>
+        <div class="divNotificationItem divNotificationItemUnread">
+          <div class="flex">
+            <img src="assets/images/notification-procedure.png" class="pr-2">
+            <div class="content-notifcation width80">
+              <b>ADT &nbsp;</b>
+              <span class="spanNotificationMsg">Notification for procedure done on patient admitted in ward B</span>
+
+              <div class="divActions flex width100">
+                <button mat-flat-button class="btnCyan">Accept</button>
+                <button mat-flat-button class="btnRed mx-1">Reject</button>
+              </div>
+            </div>
+            <div class="divTime width20 right">12.05pm</div>
+          </div>
+
+        </div>
+        <div class="divNotificationItem divNotificationItemRead">
+          <div class="flex">
+            <img src="assets/images/notification-medication.png" class="pr-2">
+            <div class="content-notifcation width80">
+              <b>Medication &nbsp;</b>
+              <span class="spanNotificationMsg">Notification for procedure done on patient admitted in ward B</span>
+            </div>
+            <div class="divTime width20 right">12.05pm</div>
+          </div>
+
+        </div>
+        <div class="divNotificationItem divNotificationItemRead">
+          <div class="flex">
+            <img src="assets/images/notification-procedure.png" class="pr-2">
+            <div class="content-notifcation width80">
+              <b>ADT &nbsp;</b>
+              <span class="spanNotificationMsg">Notification for procedure done on patient admitted in ward B</span>
+
+              <div class="divActions flex width100">
+                <b class="notificationRejected">Rejected</b>
+              </div>
+            </div>
+            <div class="divTime width20 right">12 May 2018</div>
+          </div>
+
+        </div>
+        <div class="divNotificationItem divNotificationItemRead">
+          <div class="flex">
+            <img src="assets/images/notification-procedure.png" class="pr-2">
+            <div class="content-notifcation width80">
+              <b>ADT &nbsp;</b>
+              <span class="spanNotificationMsg">Notification for procedure done on patient admitted in ward B</span>
+
+              <div class="divActions flex width100">
+                <b class="notificationAccepted">Rejected</b>
+              </div>
+            </div>
+            <div class="divTime width20 right">12 May 2018</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer" data-automation-attribute="div-modal-footer">
+    <button mat-mini-fab class="btnCyan" data-automation-attribute="btn-save">
+      <mat-icon matTooltip="Save" matRipple>
+        save
+      </mat-icon>
+    </button>
+    <button mat-mini-fab class="btnBlue btnSave" data-automation-attribute="btn-back">
+      <mat-icon matTooltip="Back" matRipple>
+        undo
+      </mat-icon>
+    </button>
+  </div>
+
+</div>

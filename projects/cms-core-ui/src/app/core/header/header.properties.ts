@@ -1,0 +1,30 @@
+export const properties = {
+    placeholder: {
+        fromDate: 'Select From Date',
+        toDate: 'Select To Date',
+        doctorName: 'Doctor Name',
+        patientMRN: 'Patient MRN',
+        mrn: 'Patient MRN',
+        patientName: 'Patient Name',
+        employeeName: 'Employee Name',
+        dateOfBirth: 'Date of Birth',
+        gender: 'Gender',
+        mobileNumber: 'Mobile',
+        identificationType: 'Identification Type',
+        identificationID: 'Identification Id',
+        unit: 'Unit',
+        country: 'Country',
+        state: 'State',
+        city: 'City',
+        pincode: 'Pincode',
+        registrationFormDate: 'Registration From',
+        registrationToDate: 'Registration To',
+        employeeid: 'Employee Id',
+        employeeId: 'Employee Id',
+        staffId: 'Staff Id',
+        staffName: 'Staff Name',
+        studentId: 'Student Id',
+        studentName: 'Student Name',
+        doctorId: 'Doctor Id'
+    }
+};

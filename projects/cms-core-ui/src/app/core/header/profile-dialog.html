@@ -1,0 +1,122 @@
+<div class="div-profile-dialog" data-automation-attribute="divProfileDialog">
+    <div class="modal-header modalHeaderBlack">
+        <h6 class="modal-title">Personal Info</h6>
+        <span aria-label="Close" class="close" (click)="onNoClick()">
+            <mat-icon>clear</mat-icon>
+        </span>
+    </div>
+    <div class="modal-body bodyCreatePasscode">        
+        <div class="flex mx-3">
+            <div class="top-div-sm">
+              <div class="imgPersonalDetails">
+                <div class="displayInline">
+                  <img src="assets/images/noavatar.png" alt="User" title="User" class="img-profile" data-automation-attribute="imgDefaultUser" />
+                </div>
+              </div>
+              <div class="imgPersonalDetails">
+                <div class="displayInline">
+                    <b class="txt-role my-2">Admin</b>
+                </div>
+              </div>
+              <div class="imgPersonalDetails">
+                <div class="div-login py-1">
+                    <b class="txt-login">Last Login</b>
+                    <p class="txtspan">03 Feb 2019</p>
+                    <p class="txtspan">03:23:23 am</p>
+                </div>
+              </div>
+            </div>
+            <div class="top-div-lg">
+              <div class="">
+                <b class="section-head">Profile</b>
+                <mat-grid-list cols="12" rowHeight="50px" class="gridlist-details">
+                  <mat-grid-tile [colspan]="12">
+                    <mat-form-field class="full-width" appearance="outline">
+                      <mat-label>Username</mat-label>   
+                      <input matInput placeholder="Sarah" data-automation-attribute="txtUsername" />      
+                      <mat-icon matSuffix class="icon-edit">edit</mat-icon>
+                    </mat-form-field>
+                  </mat-grid-tile>
+    
+                  <mat-grid-tile [colspan]="12">
+                        <mat-form-field class="full-width" appearance="outline">
+                          <mat-label>Birthday</mat-label>   
+                          <input matInput placeholder="08/Feb/2000" data-automation-attribute="txtBirthdate" />        
+                          <mat-icon matSuffix class="icon-edit">edit</mat-icon>   
+                        </mat-form-field>
+                    </mat-grid-tile>      
+    
+                    <mat-grid-tile [colspan]="12">
+                          <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Password</mat-label>   
+                            <input matInput placeholder="******" data-automation-attribute="txtTest" />    
+                            <mat-icon matSuffix class="icon-edit">edit</mat-icon>       
+                          </mat-form-field>
+                      </mat-grid-tile> 
+                            
+                    <mat-grid-tile [colspan]="12">
+                        <mat-form-field class="full-width" appearance="outline">
+                          <mat-label>Contact</mat-label>   
+                          <input matInput maxlength="12" [placeholder]="025896321" data-automation-attribute="txtContactNo" />  
+                          <mat-icon matSuffix class="icon-edit">edit</mat-icon>                          
+                        </mat-form-field>
+                    </mat-grid-tile>    
+                </mat-grid-list>
+              </div>
+            </div>
+        </div>
+        <div class="div-settings mx-3 my-4 px-4 py-4">
+            <b class="head-settings">Customize Your Settings</b>
+            <p class="subhead-settings">Change settings based on your preference of use.</p>
+
+            
+            <mat-grid-list cols="12" rowHeight="50px" class="gridlist-details">
+                    <mat-grid-tile [colspan]="6">
+                      <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Logout session after</mat-label>   
+                        <mat-select>
+                            <mat-option value="10 mins">10 mins</mat-option>
+                            <mat-option value="20 mins">20 mins</mat-option>
+                            <mat-option value="30 mins">30 mins</mat-option>
+                        </mat-select>    
+      
+                      </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile [colspan]="6">
+                            <mat-checkbox>Alert Notification</mat-checkbox>
+                    </mat-grid-tile>
+      
+                    <mat-grid-tile [colspan]="12">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Clock</mat-label>   
+                            <mat-select>
+                                <mat-option value="12 hr">12 hr</mat-option>
+                                <mat-option value="24 hr">20 hr</mat-option>
+                            </mat-select>       
+                        </mat-form-field>
+                    </mat-grid-tile>      
+                              
+                    <mat-grid-tile [colspan]="12">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Time Zone</mat-label>   
+                            <mat-select>
+                                <mat-option value="Malaysia (GMT + 8)">Malaysia (GMT + 8)</mat-option>
+                                <mat-option value="India (UTC + 5.30)">India (UTC + 5.30)</mat-option>
+                            </mat-select>                          
+                        </mat-form-field>
+                    </mat-grid-tile>    
+                  </mat-grid-list>
+
+        </div>
+
+
+    </div>
+    <div class="modal-footer footerProfile">
+        <div>
+            <button mat-mini-fab class="btnCyan btnSave">
+                <mat-icon>sim_card</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

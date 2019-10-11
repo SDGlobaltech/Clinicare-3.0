@@ -1,0 +1,14 @@
+{
+  "ClientName": "HUMS",
+  "IsprimaryIdReq": true,
+  "Isclinical": true,
+  "IsAddressRequired": true,
+  "IsCountryStateCityRequired": true,
+  "IsMartialRequired": true,
+  "IsRaceRequired": true,
+  "IsReligionRequired": true,
+  "HasMobileNumberFormat": true,
+  "MobileMinLength": 9,
+  "MobileMaxLength": 20,
+  "DigitsAfterDecimal": 2
+}

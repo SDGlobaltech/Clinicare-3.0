@@ -1,0 +1,25 @@
+<div>
+  <form data-automation-attribute="form-confirm-dialog">
+    <div class="modal-header modalHeaderBlack">
+      <h6 class="modal-title">{{data.infoText}}</h6>
+      <span aria-label="Close" class="close" (click)="buttonClick('no')">
+        <mat-icon>clear</mat-icon>
+      </span>
+    </div>
+    <div class="modal-body bodyCreatePasscode">
+      <p>{{data.displayText}}</p>
+    </div>
+    <div class="modal-footer modalFooterConfirmDialog">
+      <div>
+        <button class="btninfo-style1 btnCyan" mat-mini-fab-cu type="submit" data-automation-attribute="button-cancel-dialog">
+          <mat-icon matTooltip="Print" (click)="buttonClick('yes')">print</mat-icon>
+        </button>
+      </div>
+      <div>
+        <button class="btninfo-style2 btnCyan" mat-mini-fab-cu type="button" data-automation-attribute="button-cancel-dialog">
+          <mat-icon matTooltip="redirect" (click)="buttonClick('no')">close</mat-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

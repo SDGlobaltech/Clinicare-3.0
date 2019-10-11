@@ -1,0 +1,41 @@
+.divNotification {
+  width: 400px;
+  margin: 0px -20px !important;
+  .divHeader {
+    padding: 0 10px;
+  }
+  .divBody {
+    // padding: 10px;
+    // border: 1px solid #e1e1e1;
+    .spanNotificationMsg {
+      color: #888888;
+    }
+    .divTime {
+      color: #888888;
+      font-size: 11px;
+    }
+    .divNotificationItem {
+      padding: 10px;
+      border-top: 1px solid #e1e1e1;
+      border-bottom: 1px solid #e1e1e1;
+
+      img {
+        height: 37px;
+      }
+
+      .notificationRejected{
+          color: #cb5251;
+      }
+      .notificationAccepted{
+          color: #38a791;
+      }
+    }
+    .divNotificationItemUnread {
+      background-color: #f1fffc;
+    }
+  }
+  .divFooter {
+    background-color: #dadada;
+    text-align: center;
+  }
+}

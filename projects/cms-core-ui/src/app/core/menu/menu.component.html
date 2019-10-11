@@ -1,0 +1,103 @@
+<ul class="navigation" appAccordion>
+  <li *ngIf="parentMenuIcon" class="header">
+    <a href="javascript:;" class="navigation-link parent header-menu">
+      <span id="menuHeader">
+        <span class="parent-circle">
+          <img src="../../../assets/images/master-icons/{{ parentMenuIcon }}" />
+        </span>
+        {{ parentMenuName }}
+      </span>
+      <span class="mr-auto"></span>
+    </a>
+  </li>
+  <div *ngIf="menuList.length == 0" class="menu-loader-contain">
+    <div class="menu-loader"></div>
+  </div>
+  <li
+    appAccordionLink
+    *ngFor="let menu of menuList"
+    group="{{ menu.parent }}"
+    class="navigation-item"
+    routerLinkActive="open"
+  >
+    <a
+      *ngIf="menu.children && menu.children.length > 0; else menu1"
+      class="navigation-link parent"
+      appAccordionToggle
+      data-id="{{ menu.id }}"
+      [attr.data-sequence]="menu.sequence"
+    >
+      <img
+        src="../../../assets/images/sidebar-icons/{{ menu.icon }}.png"
+        class="iconStyling"
+      />
+      <span>{{ menu.displayText | translate }}</span>
+      <span class="mr-auto"></span>
+      <i class="menu-caret icon icon-arrows-right"></i>
+    </a>
+
+    <ng-template #menu1>
+      <a
+        [routerLink]="[menu.location]"
+        class="navigation-link parent"
+        appAccordionToggle
+        data-id="{{ menu.id }}"
+        [attr.data-sequence]="menu.sequence"
+      >
+        <img
+          src="../../../assets/images/sidebar-icons/{{ menu.icon }}.png"
+          class="iconStyling"
+        />
+        <span>{{ menu.displayText | translate }}</span>
+        <span class="mr-auto"></span>
+      </a>
+    </ng-template>
+
+    <ul
+      *ngIf="menu.children && menu.children.length > 0"
+      class="navigation-submenu"
+      appAccordion
+    >
+      <li
+        *ngFor="let child of menu.children"
+        class="navigation-item"
+        appAccordionLink
+        routerLinkActive="open"
+      >
+        <a
+          class="navigation-link second-level"
+          *ngIf="child.children && child.children.length > 0; else menu2"
+          appAccordionToggle
+          data-id="{{ child.id }}"
+          [attr.data-sequence]="child.sequence"
+          href="javascript:;"
+        >
+          <img
+            src="../../../assets/images/sidebar-icons/{{ child.icon }}.png"
+            class="iconStyling"
+          />
+          <span>{{ child.displayText | translate }}</span>
+          <span class="mr-auto"></span>
+          <i class="menu-caret icon icon-arrows-right"></i>
+        </a>
+
+        <ng-template #menu2>
+          <a
+            [routerLink]="[menu.location, child.location]"
+            class="navigation-link relative"
+            data-id="{{ child.id }}"
+            [attr.data-sequence]="child.sequence"
+            appAccordionToggle
+          >
+            <img
+              src="../../../assets/images/sidebar-icons/{{ child.icon }}.png"
+              class="iconStyling"
+            />
+            <span>{{ child.displayText | translate }}</span>
+            <span class="mr-auto"></span>
+          </a>
+        </ng-template>
+      </li>
+    </ul>
+  </li>
+</ul>

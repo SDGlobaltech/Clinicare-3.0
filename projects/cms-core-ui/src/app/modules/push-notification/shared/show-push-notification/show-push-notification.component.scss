@@ -1,0 +1,38 @@
+.divNotificationContainer {
+    z-index: 999999 !important;
+    width: 20%;
+    border-radius: 6px;
+    position: absolute;
+    top: 7%;
+    right: 1%;
+  .divNotification {
+    // width: 20%;
+    border-radius: 6px;
+    // position: absolute;
+    top: 7%;
+    right: 2%;
+
+    .content-notifcation {
+      color: #ffffff;
+    }
+
+    img {
+      height: 30px;
+    }
+    .divActions{
+        justify-content: flex-end;
+    }
+  }
+}
+
+.divNotificationBlack {
+  background-color: #4a4a4a;
+}
+
+.divNotificationGrey {
+  background-color: #9b9b9b;
+}
+
+.divNotificationRed {
+  background-color: #d97978;
+}

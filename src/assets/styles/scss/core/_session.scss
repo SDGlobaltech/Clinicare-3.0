@@ -1,0 +1,48 @@
+.bg-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+body {
+  text-rendering: auto !important;
+  -webkit-font-smoothing: auto !important;
+}
+.bg-1 {
+  // background-image: linear-gradient(135deg, #fcfcfc 4%,#fcfcfc 7%,#29b8e5 50%,#bce0ee 76%,#bce0ee 84%,#bce0ee 88%,#ffffff 99%);
+  background-image: url("../../assets/images/login-background/default.jpg");
+
+  // background-image: url('../../assets/images/unsplash/bg1.jpg');
+}
+.bg-none {
+  background-image: linear-gradient(
+    135deg,
+    #fcfcfc 4%,
+    #fcfcfc 7%,
+    #29b8e5 50%,
+    #bce0ee 76%,
+    #bce0ee 84%,
+    #bce0ee 88%,
+    #ffffff 99%
+  );
+}
+// .bg-2 {
+//   background-image: url('../../assets/images/unsplash/bg2.jpg');
+// }
+// .bg-3 {
+//   background-image: url('../../assets/images/unsplash/bg3.jpg');
+// }
+.divBakcgroundGradient {
+  background: linear-gradient(-96deg, #353b49 84%, 10%, #353b49, #39ab96 10%);
+}
+
+.lockcode {
+  display: block;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.error-number {
+  font-family: $font-family-headers;
+  font-size: 60px;
+  line-height: 1;
+}

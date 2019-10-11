@@ -1,0 +1,240 @@
+<nav class="navbar custom-navbar bg-faded main-header">
+
+  <a class="navbar-brand mr-auto" [routerLink]="['/']">
+    <img src="assets/images/Medcare-Logo.ico" class="navbar-brand-logo hover-hidden" alt="Medcare Logo">
+    <span class="docked-hidden">
+      <img src="assets/images/clinicare-logo.png" class="navbar-brand-logo" alt="Medcare Logo">
+    </span>
+  </a>
+  <!-- <ul class="navbar-nav">
+    <li class="nav-item">
+      <a href="javascript:;" class="nav-link btnMenu" (click)="toggleSidebar.emit()">
+        <i class="hamburger-icon v2"> <span></span> </i>
+      </a>
+    </li>
+
+    <li></li>
+  </ul> -->
+
+  <span class="navbar-heading hidden-xs-down">
+    <span class="spanBreadcrumb"> {{ heading }}</span>
+    <!-- <span> <i class="icon icon-arrows-right"></i></span>
+   <span>{{subheading}}</span> -->
+  </span>
+  <span> </span> <span class="mr-auto"></span>
+
+  <mat-menu class="menu-master" yPosition="above" [overlapTrigger]="false" #masterSearch="matMenu">
+    <div>
+      <form #searchForm="ngForm" class="master-search-form" (ngSubmit)="setSearch(searchForm.value)">
+        <div (click)="$event.stopPropagation()" (keydown.tab)="$event.stopPropagation()"
+          *ngFor="let search of searchList; let p_index = index" class="search-content-row">
+          <div *ngFor="let control of search.controls; let c_index = index"
+            class="search-col search-col-{{ control.column }}">
+            <mat-radio-group *ngIf="control.type == 'radio'" [(ngModel)]="this[control.name]" name="{{ control.name }}">
+              <mat-radio-button *ngFor="let radio of control.radios; let r_index = index" value="{{ radio.value }}"
+                (click)="radioOnClick(radio)">{{ radio.text }}</mat-radio-button>
+            </mat-radio-group>
+
+            <mat-form-field *ngIf="control.type == 'date'" appearance="outline">
+              <mat-label>{{ control.placeholder }}</mat-label>
+
+              <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="{{ control.placeholder }}"
+                [(ngModel)]="this[control.name]" value="{{ control.value }}" name="{{ control.name }}" />
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <div *ngIf="error.isError" class="alert alert-danger">
+              {{ error.errorMessage }}
+            </div>
+
+            <mat-form-field *ngIf="control.type == 'text'" appearance="outline">
+              <mat-label>{{ control.placeholder }}</mat-label>
+
+              <input matInput placeholder="{{ control.placeholder }}" [(ngModel)]="this[control.name]"
+                name="{{ control.name }}" />
+            </mat-form-field>
+
+            <mat-form-field *ngIf="control.type == 'number'" appearance="outline">
+              <mat-label>{{ control.placeholder }}</mat-label>
+
+              <input type="number" matInput placeholder="{{ control.placeholder }}" [(ngModel)]="this[control.name]"
+                name="{{ control.name }}" value="{{ control.value }}" />
+            </mat-form-field>
+
+            <mat-form-field *ngIf="control.type == 'select'" appearance="outline">
+              <mat-label>{{ control.placeholder }}</mat-label>
+
+              <mat-select id="{{ control.name }}" placeholder="{{ control.placeholder }}"
+                [(ngModel)]="this[control.name]" name="{{ control.name }}"
+                (selectionChange)="selectOnChange(control.name, $event.value)" value="{{ control.value }}"
+                (focus)="selectOnClick(control, p_index, c_index)">
+                <mat-option [value]="">None</mat-option>
+                <div *ngIf="control.name == 'unit'">
+                  <mat-option *ngFor="let option of control.options" [value]="option.id">
+                    {{ option.desc }}
+                  </mat-option>
+                </div>
+                <div *ngIf="control.name != 'unit'">
+                  <mat-option *ngFor="let option of control.options" [value]="option">
+                    {{ option.desc }}
+                  </mat-option>
+                </div>
+                <!-- <ng-container *ngFor="let option of control.options">
+                    <option *ngIf="[control.name]=='unit'"  [ngValue]="option.id" >{{ option.desc }}</option>
+                    <option *ngIf="[control.name]!='unit'"  [ngValue]="option" >{{ option.desc }}</option>
+                </ng-container>                -->
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="search-content-row">
+          <div class="search-col search-col-6">
+            <div class="mt-10" (keydown.tab)="$event.stopPropagation()" (click)="$event.stopPropagation()">
+              <mat-checkbox name="checkbox_filter" [(ngModel)]="saveFilter">Save Search</mat-checkbox>
+            </div>
+          </div>
+          <div class="search-col search-col-6 right">
+            <button type="submit" class="btn-master-search" mat-button>
+              <mat-icon matTooltip="Search">search</mat-icon>
+            </button>
+            <button type="button" class="btn-master-cancel" mat-button (click)="clearSearch()">
+              <mat-icon matTooltip="Reset">refresh</mat-icon>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </mat-menu>
+  <mat-icon matTooltip="Menu" [matMenuTriggerFor]="menu" class="color-white menuModules mx-2">apps</mat-icon>
+  <mat-menu #menu="matMenu" class="mat-menu-modal" yPosition="above" [overlapTrigger]="false">
+    <div class="mat-menu-modal">
+      <div *ngFor="let module of moduleList">
+        <ng-container *ngIf="module.menuList.length > 0">
+          <span class="category-name">{{ module.moduleName }}</span>
+          <div class="menu-content-row" *ngFor="let menu of module.menuList">
+            <ng-container *ngFor="let submenu of menu.list">
+              <div class="search-col search-col-3 center">
+                <div class="menu-item" (click)="menuOnClick(submenu)">
+                  <img src="{{ submenu.image }}" />
+                  <span>{{ submenu.name }}</span>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </mat-menu>
+
+
+  <mat-icon matTooltip="Notification" [matMenuTriggerFor]="notification" class="color-white menuModules mx-2">
+    notifications</mat-icon>
+  <span class="spanNotificationCount">3</span>
+  <mat-menu #notification="matMenu" class="mat-menu-modal" yPosition="above" [overlapTrigger]="false">
+    <app-push-notification-list></app-push-notification-list>
+  </mat-menu>
+
+
+  <!-- <mat-icon [matMenuTriggerFor]="menuUser" class="color-white menuUserSettings ml-15">person</mat-icon> -->
+  <div [matMenuTriggerFor]="menuUser" matTooltip="{{ userTypeName }} ({{ unitName }})"
+    class="color-white menuUserSettings ml-15 span-flex">
+    <span class="span-inline">
+      <span>{{ loginName }}</span> <br />
+      <span class="span-unit">{{ unitCode }}</span>
+    </span>
+    <img src="../assets/images/user.png" class="color-white ml-15 userImageClick span-inline" />
+  </div>
+  <!-- <img src="../assets/images/user.png" [matMenuTriggerFor]="menuUser" class="color-white menuUserSettings ml-15"> -->
+  <mat-menu #menuUser="matMenu" class="mat-menu-modal menuUserProfile" yPosition="above" [overlapTrigger]="false">
+    <div class="divProfile">
+      <div class="imgProfile"><img src="../assets/images/user.png" /></div>
+      <div class="userProfileDetails">
+        <div class="name">{{ loginName }}</div>
+        <div class="designation">{{ userTypeName }}</div>
+        <div class="unit">{{ unitName }}</div>
+      </div>
+      <div class="userProfileUpdate cursorPointer">
+        <mat-icon class="pull-right icon-edit-profile" matTooltip="Update" (click)="openProfileDialog()">create
+        </mat-icon>
+      </div>
+    </div>
+
+    <div class="divUnit">
+      <mat-form-field class="matFormfield width80" (click)="$event.stopPropagation()" appearance="outline">
+        <mat-label>Unit</mat-label>
+        <mat-select [(ngModel)]="masterHeaderUnit" name="unit">
+          <mat-option *ngFor="let unit of units" [value]="unit.unitCode">{{
+            unit.unitName
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button (click)="unitChange()" mat-mini-fab class="btnOrange">
+        <mat-icon matTooltip="Change">swap_vert</mat-icon>
+      </button>
+    </div>
+
+    <mat-grid-list cols="12" rowHeight="60px" class="divActionButtons">
+      <mat-grid-tile [colspan]="2">
+        <div class="divSettings py-2">
+          <button mat-mini-fab (click)="openSettingsDialog()" class="btnCyan">
+            <mat-icon matTooltip="Settings">settings</mat-icon>
+          </button>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="8">
+        <mat-form-field class="matFormfield full-width form-language" (click)="$event.stopPropagation()"
+          appearance="outline">
+          <mat-label>Language</mat-label>
+          <mat-select [(ngModel)]="selected" (selectionChange)="selectdata()">
+            <mat-option value="en">English</mat-option>
+            <mat-option value="th">Thai</mat-option>
+            <mat-option value="id">Bahasa (Indonesia)</mat-option>
+          </mat-select>
+
+          <mat-icon matPrefix class="icon-language">dashboard</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="2">
+        <div class="divLogout py-2">
+          <button mat-mini-fab (click)="signout()" class="btnGrey">
+            <mat-icon matTooltip="Logout">power_settings_new</mat-icon>
+          </button>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <!-- <div class="divActionButtons">
+      <div class="divSettings">
+        <button mat-mini-fab (click)="openSettingsDialog()" class="btnCyan">
+          <mat-icon matTooltip="Settings">settings</mat-icon>
+        </button>
+      </div>
+
+      <div class="divLanguage">
+        <mat-form-field
+          class="matFormfield width80"
+          (click)="$event.stopPropagation()"
+          appearance="outline"
+        >
+          <mat-label>Language</mat-label>
+          <mat-select [(value)]="selected" (selectionChange)="selectdata()">
+            <mat-option value="en">English</mat-option>
+            <mat-option value="fr">Thai</mat-option>
+            <mat-option value="bh">Bahasa (Malaysia)</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="divLogout">
+        <button mat-mini-fab (click)="signout()" class="btnGrey">
+          <mat-icon matTooltip="Logout">power_settings_new</mat-icon>
+        </button>
+      </div>
+    </div> -->
+  </mat-menu>
+</nav>

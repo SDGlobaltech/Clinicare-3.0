@@ -1,0 +1,245 @@
+.logo-login{
+    width: 12rem;
+}
+.signForm{
+    text-align: center;
+    margin-top: -34%;
+    margin-right: 4%;
+    float: right;
+}
+.signinForm-container {
+    display: flex;
+    flex-direction: column;
+    width: 315px;
+    align-self: center;
+    font-family: tahoma, sans-serif;
+    background-color: #ffffff;
+    color: #6b6b6b;
+    padding: 20px;
+  }
+  .signinForm-container .form-group{
+      margin-bottom: 0.5rem;
+  }
+  .signinForm-container > * {
+    width: 100%;
+  }
+  .mat-form-field-label, .mat-form-field-hide-placeholder .mat-select-placeholder, .mat-input-element, .mat-select-value, 
+  .md-input-container label, .md-input-container.md-input-focused label  {
+      color: #ffffff !important;
+  }
+  .mat-input-element{
+      caret-color: #ffffff !important;
+  }
+  .ff-headers{
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .form-control{
+      border-radius: 6px;
+      background-color: #ccc !important;
+      opacity: 0.8 !important;
+  }
+  input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: transparent !important;
+    background-image: none !important;
+    color: rgb(0, 0, 0) !important;
+    height: 42px;
+}
+#selectHospital, #inputUsername, #inputPassword{
+    height: 35px;
+}
+.btn-forgotpassword{
+    background-color: #a29f9f;
+    color: #fff !important;
+}
+.btn-login{
+    margin-right: 5px;
+}
+.btn{
+    opacity: 0.8;
+    border-radius: 6px;
+    font-size: 17px;
+}
+.footerDiv{
+    text-align: center;
+    background-color: transparent;
+    color: #ffffff;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+img.logo-login.medcare-logo {
+    // padding-left: 15px;
+    margin: -10px;
+    width: 14rem;
+}
+.iconSignInForm{
+    margin-right: 5px;
+}
+.divButtonFooter button,
+.divButtonFooter a {
+  margin-right: 8px;
+}
+.btnLogin.mat-button{
+    background-color:transparent !important;
+    color: #232323 !important;
+    min-width: 60px !important;
+    max-width: 60px !important;
+}
+.btnLogin.mat-button:hover, .btnLogin:focus{
+    background-color: none !important;
+}
+.btnForgotPassword{
+    background-color: #a29f9f !important;
+    color: #ffffff !important;
+}
+  .headerForm{
+      font-weight: bold;
+      font-size: 16px;
+  }
+  .mat-form-field-label, .mat-form-field-hide-placeholder .mat-select-placeholder, .mat-input-element, .mat-select-value, 
+  .md-input-container label, .md-input-container.md-input-focused label{
+    color: #6b6b6b !important;
+  }
+
+  .tablePasscode {
+    font-family: "Tahoma", sans-serif !important;
+    width: 100%;
+}
+
+.tablePasscode td {
+    text-align: center;
+    padding: 6px 0;
+    min-width: 60px !important;
+    max-width: 60px !important;
+}
+.tablePasscode td span{
+    background-color: #ccc;
+    border-radius: 50%;
+    padding:8px 12px;
+    font-size: 17px;
+}
+.divMainSection{
+    display: inline-flex;
+}
+.divRightSection{
+    padding: 10px 0 0 0;
+    background-color: #f2fbff;
+    border-radius: 10px;
+}
+.passcodeField{
+    margin-bottom: 0px !important;
+}
+.mat-mini-fab:focus{
+    outline: none !important;
+}
+::ng-deep .mat-mini-fab:not([class*=mat-elevation-z]) {
+    box-shadow: none !important;
+}
+.divContainerRight{
+    width: 210px;
+}
+.btnCreatePasscode button{
+    background-color: #39ab96;
+    // background-color: #26d06a;
+    color: #ffffff;
+    width: 100px !important;
+    font-size: 12px;
+    line-height: 17px !important;
+    border-radius: 0 8px 0 8px !important;
+    padding: 10px 0;
+}
+.btnForgetPasscode button{
+    background-color: #e8a540;
+    color: #ffffff;
+    width: 100px !important;
+    font-size: 12px;
+    line-height: 17px !important;
+    border-radius: 8px 0 8px 0 !important;
+    padding: 10px 0;
+}
+td.btnCreatePasscode {
+    padding: 10px 0 0 0 !important;
+    width: 100px !important;
+}
+td.btnForgetPasscode {
+    padding: 10px 0 0 0 !important;
+    width: 100px !important;
+}
+.error{
+    text-decoration: underline;
+    font-display: bold;
+    color:red !important; 
+    text-decoration: none !important;
+  
+  }
+  .blankTD{
+      width: 10px;
+  }
+ /* popup modal code starts here*/
+  ::ng-deep input[type=number]::-webkit-inner-spin-button,
+    ::ng-deep input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    }
+
+  /* popup modal code ends here*/
+
+@media only screen and (max-width: 1224px){
+    .signForm{
+        margin-top: -460px;
+    }
+    .signinForm-container, .divContainerRight{
+        width: 210px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .signForm{
+        margin-top: -100%;
+    }
+    .signinForm-container, .divContainerRight{
+        width: 210px;
+    }    
+}
+
+@media only screen and (max-width: 768px) {
+    .signForm{
+        margin-top: -430px;
+    }
+    .signinForm-container, .divContainerRight{
+        width: 210px;
+    }    
+}
+
+@media only screen and (max-width: 640px) {
+    .signForm{
+        margin-top: -460px;
+    }
+    .signinForm-container, .divContainerRight{
+        width: 210px;
+    }    
+}
+::ng-deep .mat-form-field-infix{
+    width: 100% !important;
+}
+
+.div-create-passcode .modal-footer .mat-dialog-actions, .div-forget-passcode .modal-footer .mat-dialog-actions{
+    width: auto !important;
+}
+.text-passcode{
+    width: 15%;
+}
+.text-enterpasscode{
+    width: 40%;
+}
+
+::ng-deep mat-form-field.width70.formfield-emailid.mat-form-field{
+    width: 70% !important;
+  }
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper{
+    padding-bottom: 0.25rem !important;
+  }

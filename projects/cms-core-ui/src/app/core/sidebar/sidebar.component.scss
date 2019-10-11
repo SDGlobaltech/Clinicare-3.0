@@ -1,0 +1,139 @@
+::ng-deep body {
+  font-size: 13px !important;
+}
+// ::ng-deep .app ng-sidebar > .sidebar-panel.ng-sidebar app-menu .navigation-item.open .navigation-submenu .navigation-item.open a,
+// ::ng-deep .app ng-sidebar > .sidebar-panel.ng-sidebar app-menu .navigation-item.open .navigation-submenu .navigation-item.open a:hover{
+//     //background-color: #0097d8 !important;
+//     background-color: #37ac94 !important;
+//     color: #ffffff !important;
+// }
+::ng-deep .theme-light .sidebar-panel.ng-sidebar .navigation-item.open > a {
+  //color: #767676;
+  color: #515966;
+  font-weight: bold;
+}
+
+::ng-deep
+  .app
+  ng-sidebar
+  > .sidebar-panel.ng-sidebar
+  app-menu
+  .navigation-submenu
+  a,
+::ng-deep
+  .app
+  ng-sidebar
+  > .sidebar-panel.ng-sidebar
+  app-menu
+  .navigation-submenu
+  a:hover {
+  color: #333333;
+  background-color: #fff;
+}
+::ng-deep
+  .theme-light
+  .sidebar-panel.ng-sidebar
+  .navigation-item.open
+  .navigation-link.parent {
+  color: #fff !important;
+  background-color: #37ac94;
+  color: #fff !important;
+  margin: 4px;
+  border-radius: 3px;
+  background-color: #37ac94;
+  box-shadow: 0 4px 8px 0 rgba(247, 247, 247, 0.2),
+    0 6px 20px 0 rgba(101, 101, 101, 0.19);
+}
+::ng-deep
+  .theme-light
+  .sidebar-panel.ng-sidebar
+  .navigation-item.open
+  .navigation-link {
+  color: #000 !important;
+}
+::ng-deep .theme-light .sidebar-panel.ng-sidebar .navigation-link {
+  color: #000 !important;
+}
+::ng-deep
+  .app
+  ng-sidebar
+  > .sidebar-panel.ng-sidebar
+  app-menu
+  .navigation-submenu {
+  list-style-type: disc !important;
+  // background-color: black;
+}
+::ng-deep
+  .app
+  ng-sidebar
+  > .sidebar-panel.ng-sidebar
+  app-menu
+  .navigation-submenu
+  a {
+  padding: 0.6rem 1rem 0.6rem 2.28rem;
+  font-weight: bold;
+  //background-color: black;
+}
+::ng-deep
+  .app
+  ng-sidebar
+  > .sidebar-panel.ng-sidebar
+  app-menu
+  .navigation-link {
+  font-weight: bold;
+  background-color: transparent;
+  padding: 12px 10 12px 10px;
+}
+
+::ng-deep
+  .app
+  ng-sidebar
+  > .sidebar-panel.ng-sidebar
+  app-menu
+  .navigation-submenu
+  a.second-level {
+  padding: 0.6rem 0.2rem 0.6rem 0.7rem;
+}
+
+::ng-deep
+  .app
+  ng-sidebar
+  > .sidebar-panel.ng-sidebar
+  app-menu
+  .navigation-submenu.third-level
+  a {
+  padding: 0.6rem 0.5rem 0.6rem 2.4rem;
+}
+
+::ng-deep
+  .app
+  ng-sidebar
+  > .sidebar-panel.ng-sidebar
+  app-menu
+  .navigation-item.open
+  .navigation-submenu
+  .navigation-item.open
+  a.second-level {
+  background: #767676 !important;
+  color: #ffffff !important;
+}
+
+::ng-deep
+  .app
+  ng-sidebar
+  > .sidebar-panel.ng-sidebar
+  app-menu
+  .navigation-submenu.third-level
+  .navigation-item.open
+  a.navigation-link,
+::ng-deep
+  .app
+  ng-sidebar
+  > .sidebar-panel.ng-sidebar
+  app-menu
+  .navigation-submenu.third-level
+  .navigation-item.open
+  a:hover {
+  background-color: #37ac94 !important;
+  color: #ffffff !important;
+}

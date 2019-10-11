@@ -1,0 +1,155 @@
+<div *ngIf="data.createOrforget" class="div-create-passcode">
+  <div class="modal-header modalHeaderCyan">
+    <h6 class="modal-title">Create Passcode</h6>
+    <span aria-label="Close" class="close" (click)="onNoClick()">
+      <mat-icon>clear</mat-icon>
+    </span>
+  </div>
+
+  <div class="modal-body bodyCreatePasscode">
+    <div style="display:inline-flex;">
+      <span class="spanLabel">{{ username }}</span>
+      <mat-form-field floatLabel="never">
+        <input
+          matInput
+          [placeholder]="enterusername"
+          [(ngModel)]="usernameValue"
+          [type]="'text'"
+        />
+      </mat-form-field>
+    </div>
+
+    <div style="display:inline-flex;">
+      <span class="spanLabel">{{ firsttimepasscode }}</span>
+      <mat-form-field floatLabel="never">
+        <input
+          matInput
+          [placeholder]="enterpassword"
+          [(ngModel)]="passwordValue"
+          [type]="'text'"
+          (blur)="focusOut()"
+        />
+      </mat-form-field>
+    </div>
+
+    <div style="display:inline-flex;">
+      <span class="spanLabel"> {{ passcode }}</span>
+      <mat-form-field floatLabel="never" class="text-passcode">
+        <input
+          matInput
+          placeholder="{{ this.pinValue }}"
+          [type]="'number'"
+          disabled
+        />
+      </mat-form-field>
+      <mat-form-field floatLabel="never" class="text-enterpasscode">
+        <input
+          matInput
+          [placeholder]="enterpasscode"
+          [(ngModel)]="passcodeValue"
+          [type]="'number'"
+        />
+      </mat-form-field>
+    </div>
+
+    <div style="display:inline-flex;">
+      <span class="spanLabel">{{ confirmpasscode }}</span>
+      <mat-form-field floatLabel="never" class="text-passcode">
+        <input
+          matInput
+          placeholder="{{ this.pinValue }}"
+          [type]="'number'"
+          disabled
+        />
+      </mat-form-field>
+      <mat-form-field floatLabel="never" class="text-enterpasscode">
+        <input
+          matInput
+          [placeholder]="confirmpasscode"
+          [(ngModel)]="passcodeConfirmValue"
+          [type]="'number'"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="modal-footer float-right">
+    <div>
+      <button mat-mini-fab (click)="saveData()" class="btnCyan btnSave">
+        <mat-icon>sim_card</mat-icon>
+      </button>
+      <button mat-mini-fab class="btnRed btnCancel">
+        <mat-icon (click)="resetData()">undo</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!data.createOrforget" class="div-forget-passcode">
+  <div class="modal-header modalHeaderOrange">
+    <h6 class="modal-title">Forgot Passcode</h6>
+    <span aria-label="Close" class="close" (click)="onNoClick()">
+      <mat-icon>clear</mat-icon>
+    </span>
+  </div>
+
+  <div class="modal-body bodyCreatePasscode">
+    <div style="display:inline-flex;">
+      <span class="width30">{{ emailid }}</span>
+      <mat-form-field floatLabel="never" class="width70 formfield-emailid">
+        <input matInput [placeholder]="enteremailID" [type]="'text'" />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="modal-footer float-right">
+    <div>
+      <button mat-mini-fab class="btnCyan btnSave">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+      <button mat-mini-fab class="btnRed btnCancel">
+        <mat-icon (click)="resetData()">undo</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="data.sentornotfound">
+  <div class="modal-header modalHeaderOrange">
+    <h6 class="modal-title">Attention</h6>
+    <span aria-label="Close" class="close" (click)="onNoClick()">
+      <mat-icon>clear</mat-icon>
+    </span>
+  </div>
+
+  <div class="modal-body">
+    <b>{{ verificationemail }}</b>
+  </div>
+
+  <div class="modal-footer">
+    <div>
+      <button mat-mini-fab [mat-dialog-close]="data.accept" class="btnOrange">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- <div *ngIf="!data.sentornotfound">
+    <div class="modal-header modalHeaderOrange">
+        <h6 class="modal-title">Attention</h6>
+        <span aria-label="Close" class="close" (click)="onNoClick()">
+            <mat-icon>clear</mat-icon>
+        </span>
+    </div>
+    <div class="modal-body">
+        <b>{{emailnotfound}}</b>
+    </div>
+    <div class="modal-footer">
+        <div>
+            <button mat-mini-fab [mat-dialog-close]="data.accept" class="btnOrange">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
+        </div>
+    </div>
+</div> -->

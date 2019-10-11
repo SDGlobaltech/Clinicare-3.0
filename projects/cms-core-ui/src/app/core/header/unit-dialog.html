@@ -1,0 +1,30 @@
+<div>
+    <div class="modal-header modalHeaderCyan">
+        <h6 class="modal-title">Unit</h6>
+        <span aria-label="Close" class="close" (click)="onNoClick()">
+            <mat-icon>clear</mat-icon>
+        </span>
+    </div>
+    <div class="modal-body">
+        <div class="mt-3">
+            <p>select the unit from below:</p>
+            <mat-form-field>
+                <mat-select placeholder="Select the unit">
+                    <mat-option value="unit1" selected>Unit 1</mat-option>
+                    <mat-option value="unit2">Unit 2</mat-option>
+                    <mat-option value="unit3">Unit 3</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="modal-footer" style="float: right;">
+        <div>
+            <button mat-mini-fab class="btnCyan btnSave">
+                <mat-icon>sim_card</mat-icon>
+            </button>
+            <button mat-mini-fab class="btnRed btnCancel">
+                <mat-icon>undo</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

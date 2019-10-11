@@ -1,0 +1,49 @@
+<div class="div-settings-dialog">
+  <div class="modal-header modalHeaderCyan">
+    <h6 class="modal-title">Settings</h6>
+    <span aria-label="Close" class="close" (click)="onNoClick()">
+      <mat-icon>clear</mat-icon>
+    </span>
+  </div>
+  <div class="modal-body bodyCreatePasscode">
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header [collapsedHeight]="'31px'" [expandedHeight]="'31px'">
+          <mat-panel-title>
+            System
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <p>system settings goes here</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header [collapsedHeight]="'31px'" [expandedHeight]="'31px'">
+          <mat-panel-title>
+            Account
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Account settings goes here</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header [collapsedHeight]="'31px'" [expandedHeight]="'31px'">
+          <mat-panel-title>
+            Privacy
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Privacy settings goes here</p>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <div class="modal-footer" style="float: right;">
+    <div>
+      <button mat-mini-fab class="btnCyan btnSave">
+        <mat-icon>sim_card</mat-icon>
+      </button>
+      <button mat-mini-fab class="btnRed btnCancel">
+        <mat-icon>undo</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

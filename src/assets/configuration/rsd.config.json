@@ -1,0 +1,15 @@
+{
+  "ClientName": "RSDHK",
+  "IsprimaryIdReq": true,
+  "Isclinical": true,
+  "IsAddressRequired": false,
+  "IsCountryStateCityRequired": false,
+  "IsMartialRequired": false,
+  "IsRaceRequired": false,
+  "IsReligionRequired": false,
+  "HasMobileNumberFormat": false,
+  "MobileMinLength": 8,
+  "MobileMaxLength": 13,
+  "DigitsAfterDecimal": 3,
+  "IsTitleRequired": false
+}

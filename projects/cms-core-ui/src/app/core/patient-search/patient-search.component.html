@@ -1,0 +1,106 @@
+<div *ngIf="!showTable && name" class="selected-patient">
+  <span>MRN: {{ mrnNumber }}</span> / <span>{{ name }}</span> /
+  <span>{{ gender }}</span> / <span>{{ dateOfBirth | date }}</span>
+</div>
+<div *ngIf="showTable">
+  <div
+    class="divSearchResult mt-10"
+    *ngIf="!firstChange && dataSource.data.length == 0"
+  >
+    No records found
+  </div>
+  <div class="patient-table">
+    <table
+      mat-table
+      #table
+      class="width100"
+      [dataSource]="dataSource"
+      *ngIf="dataSource.data.length > 0"
+    >
+      <!-- Code Column -->
+      <ng-container matColumnDef="photo">
+        <th mat-header-cell *matHeaderCellDef class="headerPhoto">
+          &nbsp; &nbsp; &nbsp; Photo
+        </th>
+        <td mat-cell *matCellDef="let element" class="headerPhoto">
+          <mat-radio-button (click)="patientOnSelect(element)">
+            <img
+              src="assets/images/patient.png"
+              class="height30 rounded-circle"
+              alt="user"
+            />
+          </mat-radio-button>
+        </td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="MRN">
+        <th mat-header-cell *matHeaderCellDef class="headerRegisteredNo">
+          Registered No.
+        </th>
+        <td mat-cell *matCellDef="let element" class="headerRegisteredNo">
+          {{ element.MRN }}
+        </td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef class="headerName">Name</th>
+        <td mat-cell *matCellDef="let element" class="headerName">
+          {{ element.firstName }}
+        </td>
+      </ng-container>
+
+      <!-- Code Column -->
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef class="headerUser">Gender</th>
+        <td mat-cell *matCellDef="let element" class="headerUser">
+          {{ element.gender }}
+        </td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="phoneNumber">
+        <th mat-header-cell *matHeaderCellDef class="headerContact">
+          Contact No.
+        </th>
+        <td mat-cell *matCellDef="let element" class="headerContact">
+          {{ element.phoneNumber }}
+        </td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="dob">
+        <th mat-header-cell *matHeaderCellDef class="headerDOB">D.O.B</th>
+        <td mat-cell *matCellDef="let element" class="headerDOB">
+          {{ element.dob | date }}
+        </td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="identification">
+        <th mat-header-cell *matHeaderCellDef class="headerIDType">ID Type</th>
+        <td mat-cell *matCellDef="let element" class="headerIDType">
+          {{ element.primaryCode }}
+        </td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="docID">
+        <th mat-header-cell *matHeaderCellDef>ID No.</th>
+        <td mat-cell *matCellDef="let element">{{ element.primaryIDdesc }}</td>
+      </ng-container>
+
+      <tr
+        mat-header-row
+        *matHeaderRowDef="displayedColumns; sticky: true"
+        class="tableHeader"
+      ></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        class="tableRow"
+      ></tr>
+    </table>
+  </div>
+</div>

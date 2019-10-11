@@ -1,0 +1,29 @@
+.tableFooterPay {
+    background-color: #39ab96;
+    padding: 7px;
+  }
+  
+  .tableFooterPay .mat-cell {
+    color: #fff;
+  }
+  
+  .payment-form {
+    padding: 10px;
+    background-color: #eee;
+  }
+  
+  .payment-table {
+    height: 9pc;
+    overflow: auto;
+    width: 100%;
+  }
+  
+  .payment-container>form>.payment-form{
+    padding: 0 10px !important;
+  }
+  
+  .amount-equal {
+    width: 33.3333333%;
+    display: inline-block;
+  }
+  

@@ -1,0 +1,50 @@
+mat-table,
+.mat-table {
+  width: 100% !important;
+}
+
+mat-header-row,
+mat-row,
+mat-footer-row,
+.mat-header-row,
+.mat-row,
+.mat-footer-row {
+  min-height: auto !important;
+  height: auto !important;
+}
+
+mat-header-row,
+.mat-header-row {
+  background-color: #353c49 !important;
+}
+
+mat-footer-row,
+.mat-footer-row {
+  background-color: #ebebeb !important;
+}
+
+mat-header-cell,
+.mat-header-cell {
+  color: #ffffff !important;
+}
+
+mat-footer-cell,
+.mat-footer-cell {
+  color: #ffffff !important;
+  font-weight: 100;
+}
+
+mat-header-cell,
+mat-cell,
+mat-footer-cell,
+.mat-header-cell,
+.mat-cell,
+.mat-footer-cell {
+  padding: 5px !important;
+  font-size: 12px !important;
+}
+
+mat-cell .mat-icon,
+.mat-cell .mat-icon {
+  cursor: pointer !important;
+}

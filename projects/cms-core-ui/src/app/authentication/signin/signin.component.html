@@ -1,0 +1,127 @@
+<ngx-loading-bar [includeSpinner]="false"></ngx-loading-bar>
+
+<div class="d-flex align-items-stretch min-height-100 h-100 d-none bg-cover bg-1" data-automation-attribute="div-hospital-backImg">
+  <div class="col-lg-9 col-md-7 col-sm-12 pt-3">
+    <img src="assets/images/clinicare-logo.png" class="logo-login medcare-logo" alt="Medcare Logo" />
+  </div>
+  <div class="col-lg-3 col-md-5 col-sm-12 pt-3 divBakcgroundGradient">
+    <img src="assets/images/sdglobal-logo.png" class="logo-login pull-right" alt="SD Global Logo" />
+  </div>
+</div>
+
+
+<div class="signForm" data-automation-attribute="div-signin-form">
+  <div class="col-lg-12 col-md-12 m-0 divMainSection">
+    <div class="divContainerRight" data-automation-attribute="div-passcode" style="margin-left: 10%;">
+      <div class="divRightSection">
+        <p class="passcodeField">
+          <mat-form-field appearance="outline">
+            <input [(ngModel)]="passcodePin" name="passcodePin" matInput [placeholder]="passcode"
+              [type]="hide ? 'password' : 'text'" (keyup)="loginMethod($event.target.value)" name="passcode"
+              data-automation-attribute="text-passcode" autofocus />
+            <mat-icon matTooltip="View/Hide Passcode" matSuffix (click)="hide = !hide" class="cursorPointer"
+              data-automation-attribute="icon-visibility">{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            <mat-icon matTooltip="Enter Passcode" matPrefix class="iconSignInForm"
+              data-automation-attribute="icon-dialpad">dialpad</mat-icon>
+          </mat-form-field>
+        </p>
+        <table class="tablePasscode" data-automation-attribute="table-passcode">
+          <tr>
+            <td>
+              <button mat-button class="btnLogin" data-automation-attribute="button-one" (click)="numberClick(1)">
+                1
+              </button>
+            </td>
+            <td>
+              <button mat-button class="btnLogin" data-automation-attribute="button-two" (click)="numberClick(2)">
+                2
+              </button>
+            </td>
+            <td>
+              <button mat-button class="btnLogin" data-automation-attribute="button-three" (click)="numberClick(3)">
+                3
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button mat-button class="btnLogin" data-automation-attribute="button-four" (click)="numberClick(4)">
+                4
+              </button>
+            </td>
+            <td>
+              <button mat-button class="btnLogin" data-automation-attribute="button-five" (click)="numberClick(5)">
+                5
+              </button>
+            </td>
+            <td>
+              <button mat-button class="btnLogin" data-automation-attribute="button-six" (click)="numberClick(6)">
+                6
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button mat-button class="btnLogin" data-automation-attribute="button-seven" (click)="numberClick(7)">
+                7
+              </button>
+            </td>
+            <td>
+              <button mat-button class="btnLogin" data-automation-attribute="button-eight" (click)="numberClick(8)">
+                8
+              </button>
+            </td>
+            <td>
+              <button mat-button class="btnLogin" data-automation-attribute="button-nine" (click)="numberClick(9)">
+                9
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button mat-button class="btnLogin" data-automation-attribute="button-clear" (click)="clearNumber()">
+                <mat-icon matTooltip="Cancel">clear</mat-icon>
+              </button>
+            </td>
+            <td>
+              <button mat-button class="btnLogin" data-automation-attribute="button-zero" (click)="numberClick(0)">
+                0
+              </button>
+            </td>
+            <td>
+              <button mat-button class="btnLogin" data-automation-attribute="button-enter">
+                <mat-icon matTooltip="Enter">subdirectory_arrow_left</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </table>
+
+        <table class="tablePasscodeActions" data-automation-attribute="table-passcode-actions">
+          <tr>
+            <td class="btnCreatePasscode">
+              <button mat-flat-button (click)="dilogCreatePasscode()"
+                data-automation-attribute="button-create-passcode">
+                Create<br />
+                Passcode
+              </button>
+            </td>
+            <td class="blankTD">&nbsp;</td>
+            <td class="btnForgetPasscode">
+              <button mat-flat-button (click)="dilogForgetPasscode()"
+                data-automation-attribute="button-forget-passcode">
+                Forgot<br />
+                Passcode
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="footerDiv">
+  <div class="col-lg-12 col-md-12 m-0">
+    <span class="footer">Copyright &copy;2019 sdglobaltech.com | All Rights Reserved</span>
+  </div>
+</div> -->

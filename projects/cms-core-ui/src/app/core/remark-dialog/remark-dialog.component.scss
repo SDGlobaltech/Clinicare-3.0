@@ -1,0 +1,73 @@
+.headerToken, .headerVisitType, .headerStatus, .headerCall, .headerAction{
+    min-width: 5% ;
+  }
+  .headerPatient, .headerDoctor, .headerEncounterDetails{
+    min-width: 15% ;
+  }
+
+  .departmentheader{
+
+    min-width: 10px;
+  }
+  
+  @media only screen and (min-width: 1280px) and (max-width: 1400px) {
+    .tdSpace {
+      width: 44% !important;
+    }
+    .divfilter form{
+      margin-left: 65% !important;
+    }
+    #inputFilter{
+      width: 330px !important;
+    }
+    .btnFooter{
+        width: 22% !important;
+    }
+    .btnFooterContact{
+      width: 30% !important;
+    }
+    .imgPersonalDetails{
+        width: 30% !important;
+    }
+  }
+  
+  @media only screen and (min-width: 1400px) and (max-width: 1500px) {
+    .tdSpace {
+      width: 48% !important;
+    }
+    .divfilter form{
+      margin-left: 69% !important;
+    }
+    #inputFilter{
+      width: 336px !important;
+    }
+    .imgPersonalDetails{
+        width: 30% !important;
+    }
+    .btnFooter{
+        width: 22% !important;
+    }
+    .btnFooterContact{
+      width: 30% !important;
+    }
+  }
+  
+  .tdSpace{
+    width: 70% !important;
+  }
+  
+.divTableSearchResult{
+margin: auto 10px !important;
+box-shadow: 0px 0px 15px 2px #D0D0D0;
+}
+.height450{
+max-height: 590px;
+}
+
+.search-result {
+padding: 15px;
+border: 2px dashed #ddd;
+display: block;
+margin-top: 1pc;
+color: rgb(77, 77, 77);
+}

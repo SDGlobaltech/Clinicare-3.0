@@ -1,0 +1,26 @@
+.modalFooterConfirmDialog .mat-dialog-actions{
+    width: auto !important;
+}
+
+.btninfo-style1 {
+    border: 0 !important;
+    padding: 5px 20px !important;
+    border-radius: 25px !important;
+    cursor: pointer !important;
+  }
+
+.btninfo-style2 {
+  border: 0 !important;
+  padding: 5px 20px !important;
+  border-radius: 25px !important;
+  cursor: pointer !important;
+  background-color: red !important;
+}
+
+.mat-mini-fab-cu,
+.mat-icon-button {
+  height: 35px !important;
+  width: 71px !important;
+  line-height: 25px !important;
+  border-radius: 9% !important;
+}

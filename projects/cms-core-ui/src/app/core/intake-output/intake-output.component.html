@@ -1,0 +1,137 @@
+<div data-automation-attribute="div-vitalreview">
+  <form data-automation-attribute="form-vitalreview">
+    <div class="modal-header modalHeaderBlack" data-automation-attribute="div-dialog-header">
+      <h6 class="modal-title">
+        <img class="imgUser rounded-circle mr-2" src="assets/images/noavatar.png">
+        <span>UHID: PC - 23534534 Sunil S Sehgal / M / 30Y 10M</span>
+      </h6>
+      <span aria-label="Close" class="close" (click)="onNoClick()" data-automation-attribute="span-close-dialog">
+        <mat-icon>clear</mat-icon>
+      </span>
+    </div>
+
+    <div class="modal-body bodyCreatePasscode heightVh55 px-2" data-automation-attribute="div-dialog-body">
+      <div class="divFilters">
+        <mat-grid-list cols="12" rowHeight="60px">
+          <mat-grid-tile [colspan]="2">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>From Date</mat-label>
+              <input id="fromdate" matInput [matDatepicker]="picker" placeholder="Date"
+                data-automation-attribute="fromdate" name="acb" />
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker startView="year" #picker disabled="false"></mat-datepicker>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="2">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>To Date</mat-label>
+              <input id="todate" matInput [matDatepicker]="picker1" placeholder="Date"
+                data-automation-attribute="todate" name="acb" />
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker startView="year" #picker1 disabled="false"></mat-datepicker>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="2">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>All Shift</mat-label>
+              <mat-select placeholder="Sort by" ngDefaultControl data-automation-attribute="sltSortby">
+                <mat-option>
+                  <ngx-mat-select-search class="full-width" ngDefaultControl placeholderLabel="Search">
+                  </ngx-mat-select-search>
+                </mat-option>
+                <mat-option>None</mat-option>
+                <mat-option value="vital set 1">vital set 1</mat-option>
+                <mat-option value="vital set 2">vital set 2</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="2">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Intravenous Infusion</mat-label>
+              <mat-select placeholder="Sort by" ngDefaultControl data-automation-attribute="sltSortby">
+                <mat-option>
+                  <ngx-mat-select-search class="full-width" ngDefaultControl placeholderLabel="Search">
+                  </ngx-mat-select-search>
+                </mat-option>
+                <mat-option>None</mat-option>
+                <mat-option value="vital set 1">vital set 1</mat-option>
+                <mat-option value="vital set 2">vital set 2</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="2">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Site</mat-label>
+              <mat-select placeholder="Sort by" ngDefaultControl data-automation-attribute="sltSortby">
+                <mat-option>
+                  <ngx-mat-select-search class="full-width" ngDefaultControl placeholderLabel="Search">
+                  </ngx-mat-select-search>
+                </mat-option>
+                <mat-option>None</mat-option>
+                <mat-option value="vital set 1">vital set 1</mat-option>
+                <mat-option value="vital set 2">vital set 2</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="12" rowHeight="30px" class="gridlistIO mx-2">
+          <mat-grid-tile [colspan]="6">
+            <b>Intake-Output Chart</b>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="3">
+            <span>Method: <b>Intravenous Infusion</b></span>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="3">
+            <span>Site: <b>Peripheral vein left hand</b></span>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+      <div class="divTable mat-elevation-z8 mt-2">
+        <table class="table-intake-output">
+          <thead>
+            <tr>
+              <th>13/05/2019</th>
+              <th colspan="4">Intake</th>
+              <th colspan="4">Output</th>
+            </tr>
+            <tr>
+              <th>Time</th>
+              <th>Qualifiers</th>
+              <th>Name</th>
+              <th>Value</th>
+              <th>Amount</th>
+              <th>Urine</th>
+              <th>N/G Aspirate</th>
+              <th>Drains Stoma etc.</th>
+              <th>Stool B O</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let io of iolist">
+              <td>{{ io.time }}</td>
+              <td>{{ io.qualifiers }}</td>
+              <td>{{ io.name }}</td>
+              <td>{{ io.value }}</td>
+              <td>{{ io.amount }}</td>
+              <td>{{ io.urine }}</td>
+              <td>{{ io.ngaspirate }}</td>
+              <td>{{ io.drains }}</td>
+              <td>{{ io.drool }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="modal-footer modalFooterDoctorAdvice" data-automation-attribute="div-dialog-footer">
+      <div mat-dialog-actions>
+        <b>Total end of shift 700</b>
+      </div>
+    </div>
+  </form>
+</div>
