@@ -178,7 +178,9 @@ input.example-right-align::-webkit-inner-spin-button {
 ::ng-deep .tableHeaderGrey, ::ng-deep .tableFooterGrey{
   background-color: #ebebeb !important;
 }
-
+.tableHeaderCyan{
+  background-color: #38a791 !important;
+}
 div.mat-menu-panel {
   min-width: fit-content !important;
   max-width: fit-content !important;
