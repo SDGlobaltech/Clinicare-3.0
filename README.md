@@ -9,3 +9,4 @@ Also, Angular CLI 6 makes it easier to configure multiple apps in the same proje
 
 
 # [How To create](https://medium.com/disney-streaming/combining-multiple-angular-applications-into-a-single-one-e87d530d6527)
+# Clinicare-3.0
