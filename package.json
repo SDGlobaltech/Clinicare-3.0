@@ -74,7 +74,7 @@
     "http-errors": "^1.7.1",
     "igniteui-angular": "^7.1.1",
     "igniteui-cli": "^3.2.1",
-    "jquery": "^3.3.6",
+    "jquery": "^3.5.0",
     "localforage": "^1.5.0",
     "moment": "2.19.1",
     "ng-fullcalendar": "^1.7.1",
